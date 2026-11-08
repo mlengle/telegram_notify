@@ -20,19 +20,7 @@ Do not enable notify and telegram_notify at the same time: the `_NOTIFY` macro w
 
 ## Installation
 
-Until the plugin is in the Z-Mod plugin list, add to `mod_data/user.moonraker.conf`:
-
-```
-[update_manager telegram_notify]
-type: git_repo
-channel: dev
-path: /root/printer_data/config/mod_data/plugins/telegram_notify
-origin: https://github.com/mlengle/telegram_notify.git
-is_system_service: False
-primary_branch: main
-```
-
-Then run `ENABLE_PLUGIN name=telegram_notify`. The printer reboots.
+Run `ENABLE_PLUGIN name=telegram_notify`. The printer reboots.
 
 When switching from notify, disable it (`DISABLE_PLUGIN name=notify`) and remove your own `[notifier ...]` sections from `mod_data/user.moonraker.conf`, if any (e.g. `events: none` for events turned off). As long as the Moonraker config has a `[notifier ...]` section, Moonraker loads Apprise. A message of telegram_notify is turned off in `mod_data/telegram_notify.conf`:
 

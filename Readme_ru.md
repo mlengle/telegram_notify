@@ -20,19 +20,7 @@ Moonraker сам отправляет сообщения в Telegram Bot API. Ap
 
 ## Установка
 
-Пока плагина нет в списке Z-Mod, добавьте в `mod_data/user.moonraker.conf`:
-
-```
-[update_manager telegram_notify]
-type: git_repo
-channel: dev
-path: /root/printer_data/config/mod_data/plugins/telegram_notify
-origin: https://github.com/mlengle/telegram_notify.git
-is_system_service: False
-primary_branch: main
-```
-
-Затем выполните `ENABLE_PLUGIN name=telegram_notify`. Принтер перезагрузится.
+Выполните `ENABLE_PLUGIN name=telegram_notify`. Принтер перезагрузится.
 
 Если раньше использовался notify, выключите его (`DISABLE_PLUGIN name=notify`) и удалите из `mod_data/user.moonraker.conf` свои секции `[notifier ...]`, если они есть (например, `events: none` для отключённых событий). Пока в конфигурации Moonraker есть хоть одна секция `[notifier ...]`, он загружает Apprise. Отключить сообщение в telegram_notify можно в `mod_data/telegram_notify.conf`:
 
